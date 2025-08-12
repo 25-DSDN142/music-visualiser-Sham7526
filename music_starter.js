@@ -1,8 +1,9 @@
-let drum_y = 750
+let drum_y = 200
 let drum_x = 500
 let drum_size
 let drum_s = 75
 
+let bass_x = 0
 let bass_y = 0
 let bass_size
 
@@ -22,6 +23,8 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    let blue = color(5, 162, 252);
    let light_blue = color(180, 220, 240);
    let purple = color(109, 29, 222);
+   let red = color(235, 64, 52);
+   let dark_red = color(201, 45, 34);
  
  // display "drums"
 function Drum(){
@@ -37,75 +40,69 @@ drum_size = drum + drum_s
    fill(purple);
    ellipse(drum_x, drum_y, drum_size);
 }
- // display "bass" 
-function Bass(){
-bass_size = bass + 200
-x = 100;
-   let bass_x = map(x, 100, 200, 0, 200);
-   stroke(blue);
-   fill(light_blue);
-   strokeWeight(2);
-   rect(bass_y, bass_x, 30, bass_size);
-   
-   stroke(blue);
-   fill(light_blue);
-   strokeWeight(2);
-   rect(bass_y + 32, bass_x, 30, bass_size - 50);
 
-   stroke(blue);
-   fill(light_blue);
-   strokeWeight(2);
-   rect(bass_y + 64, bass_x, 30, bass_size - 70);
+function Vocal_Toplip(){
+ beginShape();
+ stroke(dark_red);
+ fill(red);
+  curveVertex(0, 700);
+  curveVertex(0, 750);
+  let b = map(600, 800, 600, 800, 750)
+  curveVertex(350, b - vocal);
+  curveVertex(650, b - vocal);
+  curveVertex(1000,750);
+  curveVertex(1000,700);
+  let t = map(600, 700, 600, 700, 650)
+    curveVertex(650, t - vocal);
+    curveVertex(350, t - vocal);
+  endShape(CLOSE);
+}
 
-   stroke(blue);
-   fill(light_blue);
-   strokeWeight(2);
-   rect(bass_y + 96, bass_x, 30, bass_size + 20);
+ // display "bass bottom lip" 
+function Vocal_Bottomlip(){
+  beginShape();
+  stroke(dark_red);
+  fill(red);
+  //Bottom Lip
+  //Left Side of Mouth
+    curveVertex(0, 750); 
+    curveVertex(0, 800); 
+  //Bottom of Mouth
+    let b = map(700, 900, 700, 900, 850) 
+    curveVertex(350, b + vocal);
+    curveVertex(750, b + vocal);
+  //Right Side of Mouth
+    curveVertex(1000, 800);
+    curveVertex(1000, 750);
+  //Top of Mouth
+    let t = map(700, 800, 700, 800, 750)
+    curveVertex(750, t + vocal);
+    curveVertex(350, t + vocal);
+    endShape(CLOSE); 
+}
 
-   stroke(blue);
-   fill(light_blue);
-   strokeWeight(2);
-   rect(bass_y + 128, bass_x, 30, bass_size);
-
-   stroke(blue);
-   fill(light_blue);
-   strokeWeight(2);
-   rect(bass_y + 160, bass_x, 30, bass_size - 20);
-
-   stroke(blue);
-   fill(light_blue);
-   strokeWeight(2);
-   rect(bass_y + 192, bass_x, 30, bass_size + 10);
-
-   stroke(blue);
-   fill(light_blue);
-   strokeWeight(2);
-   rect(bass_y + 224, bass_x, 30, bass_size + 5);
-
-   stroke(blue);
-   fill(light_blue);
-   strokeWeight(2);
-   rect(bass_y + 256, bass_x, 30, bass_size);
-
-   stroke(blue);
-   fill(light_blue);
-   strokeWeight(2);
-   rect(bass_y + 288, bass_x, 30, bass_size - 20);
-
-   stroke(blue);
-   fill(light_blue);
-   strokeWeight(2);
-   rect(bass_y + 320, bass_x, 30, bass_size - 5);
-
-   stroke(blue);
-   fill(light_blue);
-   strokeWeight(2);
-   rect(bass_y + 256, bass_x, 30, bass_size);
-
+function Drum_Stick(){
+  for (let i = 0; i < 9; i++) {
+    let yPos = -70 + (i * drum); 
+    let xPos = 60 + (i * 50);
+    fill(dark_red);
+    stroke(red);
+    rect(xPos, yPos / 2, 30, 30);
+      }
+  for (let i = 0; i < 9; i++) {
+    let yPos = -70 + (i * drum); 
+    let xPos = 940 + (i * -50);
+    fill(dark_red);
+    stroke(red);
+    rect(xPos, yPos / 2, 30, 30);
+      }
 }
 
 Drum()
-Bass()
+Drum_Stick()
+
+Vocal_Bottomlip()
+Vocal_Toplip()
 
 }
 
