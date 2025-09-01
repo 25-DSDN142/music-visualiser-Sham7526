@@ -1,18 +1,29 @@
 let drum_y = 200
 let drum_x = 500
 let drum_size
-let drum_s = 75
 
+let drum_s = 75
 let bass_x = 0
 let bass_y = 0
 let bass_size
 
+//Wave
+let wave_x = 0;
+let wave_y = 700;
+let x = [];
+let y = [];
+let angle = 0;
+let num; let size = 20;
+let period = 3; let shift = 200;
+
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
-  background(109, 29, 222)
+  background(237, 197, 240)
    textFont('Verdana'); // please use CSS safe fonts
    rectMode(TOP);
    textSize(24);
+   num = height/size;
+   angleMode(DEGREES);
 
  // display "words"
    textAlign(CENTER);
@@ -98,11 +109,31 @@ function Drum_Stick(){
       }
 }
 
-Drum()
-Drum_Stick()
+function Wave(){
+  let amplitude = bass + 20;
+  translate(wave_x, wave_y);
+  for (let i=0; i<num; i++) {
+    angle = i/(num-1) * 360 * period;
+    y[i] = amplitude*cos(angle + shift);
+    x[i] = i*size;
+        //x[i] = amplitude * sin(angle + shift);
+        //y[i] = amplitude * cos(angle + shift);
+  fill(blue);
+  stroke(light_blue);
+  strokeWeight(3);
+  rect(x[i], y[i], size, size);
 
-Vocal_Bottomlip()
-Vocal_Toplip()
+
+  }
+  shift += 1;
+}
+
+Drum();
+Wave();
+//Drum_Stick();
+
+//Vocal_Bottomlip();
+//Vocal_Toplip();
 
 }
 
