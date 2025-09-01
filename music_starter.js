@@ -116,8 +116,9 @@ function Wave(){
     angle = i/(num-1) * 360 * period;
     y[i] = amplitude*cos(angle + shift);
     x[i] = i*size;
-        //x[i] = amplitude * sin(angle + shift);
-        //y[i] = amplitude * cos(angle + shift);
+   //code below made the squares Spin
+      //x[i] = amplitude * sin(angle + shift);
+      //y[i] = amplitude * cos(angle + shift);
   fill(blue);
   stroke(light_blue);
   strokeWeight(3);
