@@ -1,13 +1,10 @@
+//Drum
 let drum_y = 200
 let drum_x = 500
 let drum_size
-
 let drum_s = 75
-let bass_x = 0
-let bass_y = 0
-let bass_size
 
-//Wave
+// Wave Parameters
 let wave_x = 0;
 let wave_y = 700;
 let x = [];
@@ -25,19 +22,22 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    num = height/size;
    angleMode(DEGREES);
 
- // display "words"
+// Colors
+ let blue = color(5, 162, 252);
+ let light_blue = color(180, 220, 240);
+ let purple = color(109, 29, 222);
+ let red = color(235, 64, 52);
+ let dark_red = color(201, 45, 34);
+ let pink = color(240, 98, 143);
+
+// Display "Words"
+  function Text(){
+   fill(blue);
    textAlign(CENTER);
    textSize(vocal);
    text(words, width/2, height/2);
- 
- // color
-   let blue = color(5, 162, 252);
-   let light_blue = color(180, 220, 240);
-   let purple = color(109, 29, 222);
-   let red = color(235, 64, 52);
-   let dark_red = color(201, 45, 34);
- 
- // display "drums"
+}
+// Display "Drums"
 function Drum(){
 drum_size = drum + drum_s
    stroke(light_blue);
@@ -47,68 +47,11 @@ drum_size = drum + drum_s
    noStroke();
    fill(light_blue);
    ellipse(drum_x, drum_y, drum_s + 175);
-   stroke(blue);
-   fill(purple);
+   noStroke();
+   fill(pink);
    ellipse(drum_x, drum_y, drum_size);
 }
-
-function Vocal_Toplip(){
- beginShape();
- stroke(dark_red);
- fill(red);
-  curveVertex(0, 700);
-  curveVertex(0, 750);
-  let b = map(600, 800, 600, 800, 750)
-  curveVertex(350, b - vocal);
-  curveVertex(650, b - vocal);
-  curveVertex(1000,750);
-  curveVertex(1000,700);
-  let t = map(600, 700, 600, 700, 650)
-    curveVertex(650, t - vocal);
-    curveVertex(350, t - vocal);
-  endShape(CLOSE);
-}
-
- // display "bass bottom lip" 
-function Vocal_Bottomlip(){
-  beginShape();
-  stroke(dark_red);
-  fill(red);
-  //Bottom Lip
-  //Left Side of Mouth
-    curveVertex(0, 750); 
-    curveVertex(0, 800); 
-  //Bottom of Mouth
-    let b = map(700, 900, 700, 900, 850) 
-    curveVertex(350, b + vocal);
-    curveVertex(750, b + vocal);
-  //Right Side of Mouth
-    curveVertex(1000, 800);
-    curveVertex(1000, 750);
-  //Top of Mouth
-    let t = map(700, 800, 700, 800, 750)
-    curveVertex(750, t + vocal);
-    curveVertex(350, t + vocal);
-    endShape(CLOSE); 
-}
-
-function Drum_Stick(){
-  for (let i = 0; i < 9; i++) {
-    let yPos = -70 + (i * drum); 
-    let xPos = 60 + (i * 50);
-    fill(dark_red);
-    stroke(red);
-    rect(xPos, yPos / 2, 30, 30);
-      }
-  for (let i = 0; i < 9; i++) {
-    let yPos = -70 + (i * drum); 
-    let xPos = 940 + (i * -50);
-    fill(dark_red);
-    stroke(red);
-    rect(xPos, yPos / 2, 30, 30);
-      }
-}
-
+// Display "Bass"
 function Wave(){
   let amplitude = bass + 20;
   translate(wave_x, wave_y);
@@ -128,13 +71,55 @@ function Wave(){
   }
   shift += 1;
 }
+// Mountain Range
+function Mountain(){
+  fill(237, 154, 180);
+  noStroke();
+  beginShape();
+  vertex(0, 500);
+  vertex(100, 450);
+  vertex(400, 500);
+  vertex(600, 450);
+  vertex(1000, 450);
+  vertex(1000, 1000);
+  vertex(0, 1000);
+  endShape(CLOSE);
 
+  fill(237, 128, 162);
+  noStroke();
+  beginShape();
+  vertex(150, 670);
+  vertex(200, 800);
+  vertex(500, 700);
+  endShape(CLOSE);
+
+  fill(242, 119, 157);
+  noStroke();
+  beginShape();
+  vertex(200, 800);
+  vertex(600, 800);
+  vertex(1000, 500);
+  endShape(CLOSE);
+  
+  fill(pink);
+  noStroke();
+  beginShape();
+  vertex(0, 700);
+  vertex(100, 650);
+  vertex(300, 700);
+  vertex(600, 800);
+  vertex(800, 500);
+  vertex(1000, 400);
+  vertex(1000, 1000);
+  vertex(0, 1000);
+  endShape(CLOSE);
+
+  
+}
+
+Mountain();
 Drum();
+Text();
 Wave();
-//Drum_Stick();
-
-//Vocal_Bottomlip();
-//Vocal_Toplip();
-
 }
 
