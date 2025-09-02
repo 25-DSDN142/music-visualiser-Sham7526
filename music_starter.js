@@ -1,4 +1,4 @@
-//Drum
+// Drum Parameters
 let drum_y = 200
 let drum_x = 500
 let drum_size
