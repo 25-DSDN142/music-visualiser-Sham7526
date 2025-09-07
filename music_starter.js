@@ -1,8 +1,8 @@
 // Drum Parameters
-let drum_y = 200
-let drum_x = 500
-let drum_size
-let drum_s = 75
+let drum_y = 200;
+let drum_x = 500;
+let drum_size;
+let drum_s = 75;
 
 // Wave Parameters
 let wave_x = 0;
@@ -14,7 +14,7 @@ let num; let size = 20;
 let period = 3; let shift = 200;
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
-function draw_one_frame(words, words2, vocal, drum, bass, other, counter) {
+function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background(237, 197, 240)
    textFont('Verdana'); // please use CSS safe fonts
    rectMode(TOP);
@@ -131,14 +131,11 @@ function Mountain(){
   vertex(1000, 1000);
   vertex(0, 1000);
   endShape(CLOSE);
-
-  
 }
 
 Mountain();
 Drum();
 Text();
-BackgroundText();
 Wave();
 }
 
