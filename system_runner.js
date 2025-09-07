@@ -59,6 +59,7 @@ function setup() {
   // create text inputs
   textInput = createInput('words...');
   textInput.parent('wordsContainer');
+  
 
   // create sliders
   slider1 = createSlider(0, 100, 50);
@@ -203,6 +204,7 @@ function draw() {
         slider3.value(roww[2]);
         slider4.value(roww[3]);
        draw_one_frame(cur_words, roww[0], roww[1], roww[2], roww[3], curSlice);//currentTime()
+       //draw_one_frame(cur_words, cur_words, roww[0], roww[1], roww[2], roww[3], song.currentTime());
       }
     }
   }
