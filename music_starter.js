@@ -30,6 +30,13 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
  let dark_red = color(201, 45, 34);
  let pink = color(240, 98, 143);
 
+// Display "Background Words"
+  function BackgroundText(){
+    fill(light_blue);
+    textAlign(CENTER);
+    textSize(100);
+    text(words1, width/2, height/2 + 20);
+  }
 // Display "Words"
   function Text(){
    fill(blue);
@@ -110,6 +117,17 @@ function Mountain(){
   vertex(600, 800);
   vertex(800, 500);
   vertex(1000, 400);
+  vertex(1000, 1000);
+  vertex(0, 1000);
+  endShape(CLOSE);
+
+  fill(237, 81, 130);
+  noStroke();
+  beginShape();
+  vertex(0, 900);
+  vertex(300, 800);
+  vertex(700, 850);
+  vertex(1000, 700);
   vertex(1000, 1000);
   vertex(0, 1000);
   endShape(CLOSE);
