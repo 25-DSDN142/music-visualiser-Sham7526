@@ -37,7 +37,7 @@ function add_to_history(history, d) {
     history.shift();
   }
 }
-
+  function draw_one_frame(words, vocal, drum, bass, other,counter) {
   background(20);
 
   add_to_history(words_history, words);

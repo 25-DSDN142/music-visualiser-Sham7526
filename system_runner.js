@@ -148,7 +148,8 @@ function draw() {
     let s2 = slider2.value();
     let s3 = slider3.value();
     let s4 = slider4.value();
-
+    
+    draw_one_frame(w, s1, s2, s3, s4, 0);
   }
   else {
     if(songEpoch > 0) {
