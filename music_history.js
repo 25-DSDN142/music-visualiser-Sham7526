@@ -70,6 +70,7 @@ function add_to_history(history, d) {
   // big yellow words on top
   noStroke();
   fill(255, 255, 0);
+  draw_history_words(words_history);
 }
 
 function reset_music() {
