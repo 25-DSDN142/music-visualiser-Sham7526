@@ -59,7 +59,6 @@ function setup() {
   // create text inputs
   textInput = createInput('words...');
   textInput.parent('wordsContainer');
-  
 
   // create sliders
   slider1 = createSlider(0, 100, 50);
@@ -150,7 +149,6 @@ function draw() {
     let s3 = slider3.value();
     let s4 = slider4.value();
 
-    draw_one_frame(w, s1, s2, s3, s4, 0);
   }
   else {
     if(songEpoch > 0) {

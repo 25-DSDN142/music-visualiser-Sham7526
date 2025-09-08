@@ -38,7 +38,6 @@ function add_to_history(history, d) {
   }
 }
 
-function draw_one_frame(words, vocal, drum, bass, other,counter) {
   background(20);
 
   add_to_history(words_history, words);
@@ -71,7 +70,6 @@ function draw_one_frame(words, vocal, drum, bass, other,counter) {
   // big yellow words on top
   noStroke();
   fill(255, 255, 0);
-  draw_history_words(words_history);    
 }
 
 function reset_music() {
