@@ -14,7 +14,7 @@ let num; let size = 20;
 let period = 3; let shift = 200;
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
-  function draw_one_frame(words, vocal, drum, bass, other, counter) {
+  function draw_one_frame(words, words2, vocal, drum, bass, other, counter) {
   background(237, 197, 240);
    textFont('Verdana'); // please use CSS safe fonts
    rectMode(TOP);
@@ -30,19 +30,19 @@ let period = 3; let shift = 200;
  let dark_red = color(201, 45, 34);
  let pink = color(240, 98, 143);
 
-// Display "Background Words"
-  function BackgroundText(){
-    fill(light_blue);
-    textAlign(CENTER);
-    textSize(36);
-    text(words2, width/2, height/2 + 100);
-  }
 // Display "Words"
   function Text(){
    fill(blue);
    textAlign(CENTER);
    textSize(vocal);
    text(words, width/2, height/2);
+}
+// Display "Second Set of Words"
+  function Text2(){
+   fill(purple);
+   textAlign(CENTER);
+   textSize(36);
+   text(words2, width/2, height/2 + 100);
 }
 // Display "Drums"
 function Drum(){
@@ -135,6 +135,7 @@ function Mountain(){
 Mountain();
 Drum();
 Text();
+Text2();
 Wave();
 }
 

@@ -15,6 +15,7 @@ let songIsPlaying = false;
 let songEpoch = 0;              // millis when song starts
 let table;
 let words;
+let words2;
 
 function songLoadedError() {
   songButton.elt.innerHTML = "Song: Load Error";
@@ -43,6 +44,7 @@ function songLoadedSoFar(soFar) {
 function preload() {
   table = loadTable('volumes.csv', 'csv');
   words = loadStrings('words.txt');
+  words2 = loadStrings('words2.txt');
 }
 
 let volumes = [];
@@ -193,16 +195,20 @@ function draw() {
         // draw_one_frame(row);
         // print(row);
         let roww = [volumes[0][curSlice], volumes[1][curSlice], volumes[2][curSlice], volumes[3][curSlice]]
-        cur_words = "";
+        let cur_words = "";
         if (curSlice < words.length) {
           cur_words = words[curSlice];
+        }
+        let cur_words2 = "";
+        if (curSlice < words2.length) {
+          cur_words2 = words2[curSlice];
         }
         textInput.value(cur_words);
         slider1.value(roww[0]);
         slider2.value(roww[1]);
         slider3.value(roww[2]);
         slider4.value(roww[3]);
-       draw_one_frame(cur_words, roww[0], roww[1], roww[2], roww[3], curSlice);//currentTime()
+       draw_one_frame(cur_words, cur_words2, roww[0], roww[1], roww[2], roww[3], curSlice);//currentTime()
        //draw_one_frame(cur_words, cur_words, roww[0], roww[1], roww[2], roww[3], song.currentTime());
       }
     }
