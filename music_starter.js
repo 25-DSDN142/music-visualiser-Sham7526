@@ -152,7 +152,7 @@ function makeCloud(cloudx, cloudy) {
 function clouds() {
   // Only move clouds if counter is above a threshold (e.g., 100)
   if (typeof counter !== "undefined" && counter > 8150) {
-    cloudx += 1.0; // Move clouds to the right
+    cloudx += 2.0; // Move clouds to the right
   }
   fill(220);
   noStroke();
