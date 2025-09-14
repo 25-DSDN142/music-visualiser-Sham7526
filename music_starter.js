@@ -13,6 +13,10 @@ let angle = 0;
 let num; let size = 20;
 let period = 3; let shift = 200;
 
+//Cloud Parameters
+let cloudx = -200;
+let cloudy = -500;
+
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
   function draw_one_frame(words, words2, vocal, drum, bass, other, counter) {
   background(237, 197, 240);
@@ -35,6 +39,7 @@ let period = 3; let shift = 200;
    textSize(vocal);
    text(words, width/2, height/2);
 }
+
 // Display "Second Set of Words"
   function Text2(){
    fill(240, 98, 143, 150);
@@ -43,6 +48,7 @@ let period = 3; let shift = 200;
    textSize(280);
    text(words2, width/2, height/3.5 + 100);
 }
+
 // Display "Drums"
 function Drum(){
 drum_size = drum + drum_s;
@@ -57,6 +63,7 @@ drum_size = drum + drum_s;
    fill(pink);
    ellipse(drum_x, drum_y, drum_size);
 }
+
 // Display "Bass"
 function Wave(){
   g = map(bass * 2, 180, 220, 190, 220);
@@ -76,6 +83,7 @@ function Wave(){
   }
   shift += 1;
 }
+
 // Mountain Range
 function Mountain(){
   fill(237, 154, 180);
@@ -130,10 +138,34 @@ function Mountain(){
   vertex(0, 1000);
   endShape(CLOSE);
 }
+
+// MakeCloud Function
+function makeCloud(cloudx, cloudy) {
+  fill(250)
+  noStroke();
+  ellipse(cloudx, cloudy + other, 120, 100);
+  ellipse(cloudx + 20, cloudy + 20 + other, 120, 100);
+  ellipse(cloudx - 30, cloudy + 10 + other, 120, 100);
+}
+
+// Clouds Function
+function clouds() {
+  // Only move clouds if counter is above a threshold (e.g., 100)
+  if (typeof counter !== "undefined" && counter > 8150) {
+    cloudx += 1.0; // Move clouds to the right
+  }
+  fill(220);
+  noStroke();
+  makeCloud(cloudx, cloudy - 150);
+  makeCloud(cloudx + 100, cloudy + 100);
+  makeCloud(cloudx - 150, cloudy + 0);
+}
+
+// Calling Functions
 Text2();
 Mountain();
 Drum();
 Text();
 Wave();
+clouds();
 }
-
