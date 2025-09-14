@@ -25,28 +25,27 @@ let period = 3; let shift = 200;
 // Colors
  let blue = color(5, 162, 252);
  let light_blue = color(180, 220, 240);
- let purple = color(109, 29, 222);
- let red = color(235, 64, 52);
- let dark_red = color(201, 45, 34);
  let pink = color(240, 98, 143);
 
 // Display "Words"
   function Text(){
    fill(blue);
+   noStroke();
    textAlign(CENTER);
    textSize(vocal);
    text(words, width/2, height/2);
 }
 // Display "Second Set of Words"
   function Text2(){
-   fill(purple);
+   fill(240, 98, 143, 150);
+   noStroke();
    textAlign(CENTER);
-   textSize(36);
-   text(words2, width/2, height/2 + 100);
+   textSize(280);
+   text(words2, width/2, height/3.5 + 100);
 }
 // Display "Drums"
 function Drum(){
-drum_size = drum + drum_s
+drum_size = drum + drum_s;
    stroke(light_blue);
    strokeWeight(2);
    fill(blue);
@@ -60,6 +59,7 @@ drum_size = drum + drum_s
 }
 // Display "Bass"
 function Wave(){
+  g = map(bass * 2, 180, 220, 190, 220);
   let amplitude = bass + 20;
   translate(wave_x, wave_y);
   for (let i=0; i<num; i++) {
@@ -69,12 +69,10 @@ function Wave(){
    //code below made the squares Spin
       //x[i] = amplitude * sin(angle + shift);
       //y[i] = amplitude * cos(angle + shift);
-  fill(blue);
+  fill(5, g, 252);
   stroke(light_blue);
   strokeWeight(3);
   rect(x[i], y[i], size, size);
-
-
   }
   shift += 1;
 }
@@ -132,10 +130,10 @@ function Mountain(){
   vertex(0, 1000);
   endShape(CLOSE);
 }
+Text2();
 Mountain();
 Drum();
 Text();
-Text2();
 Wave();
 }
 
