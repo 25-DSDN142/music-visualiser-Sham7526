@@ -1,7 +1,6 @@
 let last_words = "";
 let last_words_opacity = 0;
-
-function draw_one_frame(words, vocal, drum, bass, other,counter) {
+  function draw_one_frame(words, vocal, drum, bass, other,counter) {
   background(255,236,180); // cream
   fill(244,161,39); // orange
 
